@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles.css">
+  <title>DWG Setup</title>
+</head>
+<body>
+  <main class="setup-page">
+    <a href="/" class="back-link">← Back to app</a>
+    <h1>DWG Operations Center Setup</h1>
+
+    <section class="settings-card">
+      <h2>Netlify environment variables</h2>
+      <p>Add these four variables in Netlify under <strong>Project configuration → Environment variables</strong>.</p>
+      <table>
+        <tr><th>Name</th><th>Value</th></tr>
+        <tr><td>RAINBOW_API_KEY</td><td>Your Rainbow Weather API key</td></tr>
+        <tr><td>VAPID_PUBLIC_KEY</td><td>Your generated public VAPID key</td></tr>
+        <tr><td>VAPID_PRIVATE_KEY</td><td>Your generated private VAPID key</td></tr>
+        <tr><td>VAPID_SUBJECT</td><td>mailto:your-email@example.com</td></tr>
+      </table>
+      <p><strong>You do not edit app.js.</strong> The app reads the public key from Netlify automatically.</p>
+    </section>
+
+    <section class="settings-card">
+      <h2>Deployment requirement</h2>
+      <p>Push notifications require Netlify Functions. A simple static Netlify Drop may show the page but will not run the secure weather and push-notification backend.</p>
+      <p>Use one of these:</p>
+      <ol>
+        <li>Connect the folder to GitHub and let Netlify build it, or</li>
+        <li>Deploy from the Linux terminal using Netlify CLI.</li>
+      </ol>
+    </section>
+
+    <section class="settings-card">
+      <h2>Phone installation</h2>
+      <ol>
+        <li>Open the deployed site on your phone.</li>
+        <li>Add it to your home screen.</li>
+        <li>Open it from the new icon.</li>
+        <li>Tap <strong>Enable phone alerts</strong>.</li>
+        <li>Tap <strong>Send test alert</strong>.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b5cab">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DWG Weather">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/styles.css">
+  <title>DWG Operations Center</title>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">DELAWARE WEATHER GUY</p>
+      <h1>Operations Center</h1>
+      <p class="tagline">Data Over Drama</p>
+    </div>
+    <button id="refreshBtn" class="icon-button" aria-label="Refresh">↻</button>
+  </header>
+
+  <main>
+    <section id="setupPanel" class="setup-panel hidden">
+      <h2>Setup required</h2>
+      <p id="setupMessage">Checking Netlify settings...</p>
+      <a href="/SETUP.html" class="setup-link">Open setup instructions</a>
+    </section>
+
+    <section class="status-strip">
+      <div>
+        <span class="label">Last update</span>
+        <strong id="updatedAt">Not loaded</strong>
+      </div>
+      <div>
+        <span class="label">Phone alerts</span>
+        <strong id="notificationStatus">Checking...</strong>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="enableNotifications" class="primary">Enable phone alerts</button>
+      <button id="testNotification" class="secondary">Send test alert</button>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Delaware forecast desk</h2>
+        <span id="loadState">Ready</span>
+      </div>
+      <div id="locationGrid" class="grid">
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+      </div>
+    </section>
+
+    <section class="alerts-section">
+      <div class="section-heading">
+        <h2>Active Delaware alerts</h2>
+        <span id="alertCount">0</span>
+      </div>
+      <div id="alertsList" class="alerts-list">
+        <p class="quiet">No alert data loaded yet.</p>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <h2>Notification rules</h2>
+      <p>Automatic checks run every three hours. Notifications are sent only when a meaningful forecast change or new NWS alert is detected.</p>
+      <ul>
+        <li>Temperature changes by 5°F or more</li>
+        <li>Rain probability changes by 20 points or more</li>
+        <li>Wind-gust forecast changes by 10 mph or more</li>
+        <li>Condition category changes</li>
+        <li>New Delaware watches, warnings, or advisories</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <span>DWG Mobile Operations Center v2</span>
+    <span>Data Over Drama</span>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

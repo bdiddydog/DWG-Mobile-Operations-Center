@@ -1,0 +1,37 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions."notify"]
+  schedule = "0 */3 * * *"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/*.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+
+[[redirects]]
+  from = "/api/config"
+  to = "/.netlify/functions/config"
+  status = 200
+
+[[redirects]]
+  from = "/api/weather"
+  to = "/.netlify/functions/weather"
+  status = 200
+
+[[redirects]]
+  from = "/api/subscribe"
+  to = "/.netlify/functions/subscribe"
+  status = 200
+
+[[redirects]]
+  from = "/api/test-push"
+  to = "/.netlify/functions/test-push"
+  status = 200
